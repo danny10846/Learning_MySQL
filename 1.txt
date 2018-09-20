@@ -1,0 +1,58 @@
+
+Database Schema:
+
+celebs  4 rows
+id  INTEGER
+name  TEXT
+age INTEGER
+
+
+
+
+SELECT * FROM celebs;   <---- to view what's in the celeb table
+
+
+
+Query Results:
+
+id    name      age
+1 Justin Bieber 22
+2 Beyonce Knowles 33
+3 Jeremy Lin  26
+4 Taylor Swift  26
+
+A relational database is a database that organizes information into one or more tables. 
+Here, the relational database contains one table. 
+
+A table is a collection of data organized into rows and columns.
+ Tables are sometimes referred to as relations. Here the table is celebs. 
+
+
+
+ CREATE TABLE table_name (
+   column_1 data_type,           <--- mySQL statement
+   column_2 data_type, 
+   column_3 data_type
+);
+
+CREATE TABLE is a clause. Clauses perform specific tasks in SQL. By convention, clauses are written in capital letters. Clauses can also be referred to as commands.
+
+table_name refers to the name of the table that the command is applied to.
+
+(column_1 data_type, column_2 data_type, column_3 data_type) is a parameter. A parameter is a list of columns, data types, or values that are passed to a clause as an argument. Here, the parameter is a list of column names and the associated data type.
+
+
+///////////////
+
+CREATE TABLE celebs (
+   id INTEGER, 
+   name TEXT, 
+   age INTEGER
+);
+
+
+INSERT INTO celebs (id, name, age)    <---- input into the celeb table format
+VALUES (1, 'Justin Bieber', 21);
+
+SELECT * FROM celebs;
+SELECT name FROM celebs; <--- just name column data to view

@@ -1,0 +1,129 @@
+SELECT name AS 'Titles'
+FROM movies;
+
+AS is a keyword in SQL that allows you to rename a column or table using an alias. The new name can be anything you want as long as you put it inside of single quotes. Here we renamed the name column as Titles.
+
+It is important to remember that the columns have not been renamed in the table. The aliases only appear in the result.
+
+
+///
+
+SELECT DISTINCT genre
+FROM movies;             <----- will return a few results rather than 250
+
+
+
+/////
+
+SELECT *
+FROM MOVIES 
+WHERE imdb_rating < 5;   <----- properly querying the database
+
+
+//////
+
+
+SELECT *
+FROM MOVIES
+WHERE name LIKE 'Se_en'; <-------- Has these letters
+
+
+We can use the % character like so: WHERE name LIKE 'A%'; returns all names starting with A. WHERE name LIKE '%man%'; returns all names where man is in the name.
+
+SELECT name 
+FROM movies 
+WHERE imdb_rating IS NULL;
+
+
+//////////////
+
+
+SELECT *
+FROM movies
+WHERE year BETWEEN 1990 AND 1999;
+
+SELECT *
+FROM movies
+WHERE name BETWEEN 'A' AND 'J';
+
+
+BETWEEN two letters is not inclusive of the 2nd letter.
+BETWEEN two numbers is inclusive of the 2nd number.
+
+
+
+
+////////////
+
+SELECT *
+FROM movies 
+WHERE year BETWEEN 1970 AND 1979 
+AND imdb_rating > 8;  <---- further query
+
+SELECT * 
+FROM movies 
+WHERE genre = 'romance'
+  OR genre = 'comedy';
+
+
+  //////////////
+
+
+  SELECT *
+FROM movies
+WHERE imdb_rating > 8
+ORDER BY year DESC;
+
+DESC is a keyword used in ORDER BY to sort the results in descending order (high to low or Z-A).
+
+ASC is a keyword used in ORDER BY to sort the results in ascending order (low to high or A-Z).
+
+Note: ORDER BY always goes after WHERE (if WHERE is present).
+
+
+/////////////
+
+SELECT *
+FROM movies
+LIMIT 10;
+
+SELECT * 
+FROM movies
+ORDER BY imdb_rating DESC
+LIMIT 3;
+
+
+/////////////
+
+SELECT name,
+ CASE
+  WHEN imdb_rating > 8 THEN 'Fantastic'
+  WHEN imdb_rating > 6 THEN 'Poorly Received'
+  ELSE 'Avoid at All Costs'
+ END AS 'Review'
+FROM movies;
+
+SELECT name,
+CASE
+  WHEN genre = 'romance' 
+  OR genre = 'comedy' THEN 'Chill'
+  ELSE 'Intense'
+ END AS 'Mood'
+FROM movies;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

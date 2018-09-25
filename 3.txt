@@ -1,0 +1,72 @@
+ SELECT COUNT(*) 
+ FROM fake_apps
+ WHERE price=0;
+
+ returns number of rows where price = 0
+
+
+SELECT SUM(downloads)
+FROM fake_apps;
+
+returns sum of all downloads column. 
+
+//////
+
+SELECT MAX(price)
+FROM fake_apps;
+
+MIN obviously finds lowest of some column.
+
+
+//////
+
+SELECT AVG(price)
+FROM fake_apps;
+
+/////
+
+SELECT name, ROUND(price, 0)
+FROM fake_apps;
+
+selects name and price rounded to 0 decimal places in the output.
+
+////////////////
+
+SELECT year,
+   AVG(imdb_rating)
+FROM movies
+GROUP BY year
+ORDER BY year;
+
+GROUP BY arranges identical data into groups. 
+
+Saves writing: 
+
+SELECT AVG(imdb_rating)
+FROM movies
+WHERE year = 1999;
+
+SELECT AVG(imdb_rating)
+FROM movies
+WHERE year = 2000;
+
+SELECT AVG(imdb_rating)
+FROM movies
+WHERE year = 2001;
+
+->>>>
+
+SELECT price, COUNT(*)
+FROM fake_apps
+WHERE downloads > 20
+GROUP BY price;
+
+The GROUP BY statement comes after any WHERE statements, but before ORDER BY or LIMIT.
+
+
+SELECT category, SUM(downloads)
+FROM fake_apps
+GROUP BY category;
+
+Selects category and sum of downloads, then groups by category, so for every category it selects, for instance books, 
+it will sum the amount of downloads there are for book apps. 
